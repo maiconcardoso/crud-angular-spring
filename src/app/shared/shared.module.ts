@@ -6,7 +6,7 @@ import { AppMaterialModule } from './app-material/app-material.module';
 
 @NgModule({
   declarations: [
-    ErrorDialogComponent
+    ErrorDialogComponent,
   ],
   imports: [
     CommonModule,
