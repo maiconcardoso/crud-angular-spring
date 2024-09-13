@@ -4,15 +4,18 @@ import { CommonModule } from '@angular/common';
 import { CoursesRoutingModule } from './courses-routing.module';
 import { CoursesComponent } from './courses.component';
 import { AppMaterialModule } from '../shared/app-material/app-material.module';
+import { ErrorDialogComponent } from '../shared/error-dialog/error-dialog.component';
 
 @NgModule({
   declarations: [
-    CoursesComponent
+    CoursesComponent,
+    ErrorDialogComponent
   ],
   imports: [
     CommonModule,
     CoursesRoutingModule,
-    AppMaterialModule
+    AppMaterialModule,
+
   ]
 })
 export class CoursesModule { }
