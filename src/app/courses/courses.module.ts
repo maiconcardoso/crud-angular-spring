@@ -6,12 +6,14 @@ import { ErrorDialogComponent } from '../shared/error-dialog/error-dialog.compon
 import { CoursesRoutingModule } from './courses-routing.module';
 import { CoursesComponent } from './courses.component';
 import { CategoryPipe } from '../shared/pipes/category.pipe';
+import { CourseFormComponent } from './course-form/course-form.component';
 
 @NgModule({
   declarations: [
     CoursesComponent,
     ErrorDialogComponent,
-    CategoryPipe
+    CategoryPipe,
+    CourseFormComponent
   ],
   imports: [
     CommonModule,
