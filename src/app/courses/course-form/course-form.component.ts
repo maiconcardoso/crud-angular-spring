@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+/* import { FormBuilder, FormGroup } from '@angular/forms'; */
+import { UntypedFormBuilder,UntypedFormGroup } from '@angular/forms';
 import { CoursesService } from '../services/courses.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Location } from '@angular/common';
@@ -11,9 +12,9 @@ import { Location } from '@angular/common';
 })
 export class CourseFormComponent {
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(private formBuilder: UntypedFormBuilder,
               private service: CoursesService,
               private snackBar: MatSnackBar,
               private location: Location) {
