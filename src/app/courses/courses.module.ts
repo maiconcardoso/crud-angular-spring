@@ -8,13 +8,15 @@ import { CoursesComponent } from './courses.component';
 import { CategoryPipe } from '../shared/pipes/category.pipe';
 import { CourseFormComponent } from './course-form/course-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CoursesListComponent } from './courses-list/courses-list.component';
 
 @NgModule({
   declarations: [
     CoursesComponent,
     ErrorDialogComponent,
     CategoryPipe,
-    CourseFormComponent
+    CourseFormComponent,
+    CoursesListComponent
   ],
   imports: [
     CommonModule,

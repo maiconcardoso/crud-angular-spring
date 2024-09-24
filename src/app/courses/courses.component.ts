@@ -14,7 +14,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CoursesComponent {
 
   courses$: Observable<Course[]>;
-  displayedColumns = ['_id' ,'name', 'category', 'actions'];
 
   constructor(private courseService: CoursesService,
               private dialog: MatDialog,
