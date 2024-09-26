@@ -23,7 +23,20 @@ export class CoursesService {
   }
 
   save(course: Partial<Course>) {
+    if (course._id) {
+      console.log('Update')
+      return this.update(course);
+    }
+    console.log('create')
+    return this.create(course);
+  }
+
+  private create(course: Partial<Course>) {
     return this.httpClient.post<Course>(this.API, course);
+  }
+
+  private update(course: Partial<Course>) {
+    return this.httpClient.put<Course>(`${this.API}/${course._id}`, course);
   }
 
   findById(id: string) {
