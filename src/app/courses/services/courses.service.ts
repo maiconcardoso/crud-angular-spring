@@ -17,17 +17,14 @@ export class CoursesService {
     return this.httpClient.get<Course[]>(this.API)
       .pipe(
         first(),
-        delay(1300),
-        tap(course => console.log(course))
+        delay(1300)
       );
   }
 
   save(course: Partial<Course>) {
     if (course._id) {
-      console.log('Update')
       return this.update(course);
     }
-    console.log('create')
     return this.create(course);
   }
 
