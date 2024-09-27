@@ -28,6 +28,10 @@ export class CoursesService {
     return this.create(course);
   }
 
+  findById(id: string) {
+    return this.httpClient.get<Course>(`${this.API}/${id}`);
+  }
+
   private create(course: Partial<Course>) {
     return this.httpClient.post<Course>(this.API, course);
   }
@@ -36,7 +40,8 @@ export class CoursesService {
     return this.httpClient.put<Course>(`${this.API}/${course._id}`, course);
   }
 
-  findById(id: string) {
-    return this.httpClient.get<Course>(`${this.API}/${id}`);
+  remove(id: string) {
+    return this.httpClient.delete(`${this.API}/${id}`).pipe(first());
   }
+
 }
