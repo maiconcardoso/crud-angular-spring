@@ -6,6 +6,7 @@
     <form [formGroup]="form" class="min-with">
       <mat-form-field class="full-with">
         <input matInput placeholder="Nome" formControlName="name">
+        <mat-error *ngIf="form.get('name')?.invalid"> {{ getErrorMessage('name') }} </mat-error>
       </mat-form-field>
 
        <mat-form-field class="full-with">
