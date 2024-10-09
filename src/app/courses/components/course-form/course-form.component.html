@@ -9,7 +9,7 @@
         <mat-error *ngIf="form.get('name')?.invalid"> {{ getErrorMessage('name') }} </mat-error>
       </mat-form-field>
 
-       <mat-form-field class="full-with">
+      <mat-form-field class="full-with">
         <mat-label>Category</mat-label>
         <mat-select formControlName="category">
           <mat-option></mat-option>
@@ -20,13 +20,12 @@
 
       <mat-toolbar>
         <span>Aulas</span>
-        <button mat-icon-button>
+        <button mat-icon-button color="primary" (click)="addNewLesson()">
           <mat-icon aria-label="Adicionar uma nova aula ">add</mat-icon>
         </button>
 
       </mat-toolbar>
-      <table style="width: 100%" formArrayName="lessons"
-      *ngFor="let lesson of getLessonsForArray(); let i = index">
+      <table style="width: 100%" formArrayName="lessons" *ngFor="let lesson of getLessonsForArray(); let i = index">
         <tr [formGroupName]="i">
           <td style="width: 65%">
             <mat-form-field class="full-with">
@@ -40,6 +39,11 @@
               <span matPrefix>www.youtube.com/</span>
               <input matInput formControlName="youtubeUrl">
             </mat-form-field>
+          </td>
+          <td>
+            <button mat-icon-button color="warn" (click)="removeLesson(i)">
+              <mat-icon aria-label="Remover aula">delete</mat-icon>
+            </button>
           </td>
         </tr>
       </table>

@@ -61,6 +61,16 @@ export class CourseFormComponent {
     return (<UntypedFormArray>this.form.get('lessons')).controls
   }
 
+  addNewLesson() {
+    const lesson = this.form.get('lessons') as UntypedFormArray
+    lesson.push(this.createLesson());
+  }
+
+  removeLesson(index: number) {
+    const lesson = this.form.get('lessons') as UntypedFormArray
+    lesson.removeAt(index);
+  }
+
   onCancel() {
     this.location.back();
   }
