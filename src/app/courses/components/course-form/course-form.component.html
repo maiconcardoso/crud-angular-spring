@@ -17,20 +17,26 @@
           <mat-option value="back-end">Back-End</mat-option>
         </mat-select>
       </mat-form-field>
-
       <mat-toolbar>
         <span>Aulas</span>
         <button mat-icon-button color="primary" (click)="addNewLesson()">
           <mat-icon aria-label="Adicionar uma nova aula ">add</mat-icon>
         </button>
-
       </mat-toolbar>
+
+      <mat-error *ngIf="isFormArrayRequired()" class="form-array-error">
+        Adicione ao menos uma aula.
+      </mat-error>
+
       <table style="width: 100%" formArrayName="lessons" *ngFor="let lesson of getLessonsForArray(); let i = index">
         <tr [formGroupName]="i">
           <td style="width: 65%">
             <mat-form-field class="full-with">
               <mat-label>Título da aula</mat-label>
               <input matInput formControlName="name">
+              <mat-error *ngIf="getLessonsForArray()[i].get('name')?.invalid" class="form-array-error">
+                Campo Inválido.
+              </mat-error>
             </mat-form-field>
           </td>
           <td style="width: 30%">
@@ -38,6 +44,9 @@
               <mat-label>URL</mat-label>
               <span matPrefix>www.youtube.com/</span>
               <input matInput formControlName="youtubeUrl">
+              <mat-error *ngIf="getLessonsForArray()[i].get('youtubeUrl')?.invalid" class="form-array-error">
+                Campo Inválido.
+              </mat-error>
             </mat-form-field>
           </td>
           <td>
